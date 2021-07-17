@@ -231,9 +231,13 @@ def book_csv(request):
 
 def list_books(request):
     title_book=request.POST['book_name']
-    a=books.objects.filter(title__icontains=title_book)
+    try:
+        a=books.objects.filter(title__icontains=title_book)
 
-    ans=ml(a[0].title)
+        ans=ml(a[0].title)
+    except:
+        a=None
+        ans=[]
 
 
 
