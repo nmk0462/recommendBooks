@@ -35,7 +35,7 @@ def ml(title_books):
 ##################################################
 
 ##Step 1: Read CSV File
-    df = pd.read_csv("books.csv")
+    df = pd.read_csv("books.csv",encoding='latin1')
 
 ##Step 2: Select Features
 
@@ -210,7 +210,7 @@ def add_summary(request,id):
 
 def book_csv(request):
     # Import CSV
-    data = pd.read_csv ('books.csv')   
+    data = pd.read_csv ('books.csv',encoding='latin1')   
 
     df = pd.DataFrame(data, columns= ['bookID','title','authors','publisher','average_rating','summary'])
 
