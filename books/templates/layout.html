@@ -1,0 +1,142 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+    <meta name="author" content="Navs">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">  
+    <head>
+        <title>{% block title %}BOOK-SHELF{% endblock %}</title>
+           <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+           <link href="https://fonts.googleapis.com/css2?family=Kufam&display=swap" rel="stylesheet">
+
+<style type="text/css">
+
+	*
+	{
+		font-family: Kufam;
+		align-items: center;
+		color: white;
+		
+
+
+	}
+	body
+	{
+		background: url('/static/c.jpg') no-repeat;
+		background-size: cover;
+
+	
+       
+
+	}
+
+#tab-btn1{
+	position: relative;
+	display: inline-block;
+	padding: 5px 13px;
+	border-radius: 20px;
+	color: white;
+	font-size: 15px;
+	text-decoration: none;
+	text-transform: uppercase;
+	transition: 0.5s;
+	letter-spacing: 2px;
+	
+}
+
+#tab-btn2{
+	position: relative;
+	display: inline-block;
+	padding: 5px 13px;
+    border-radius: 20px;
+	color:white;
+	font-size: 15px;
+	text-decoration: none;
+	text-transform: uppercase;
+	transition: 0.5s;
+	letter-spacing: 2px;
+
+
+}
+#tab-btn1:hover
+{
+	background: #03e9f4;
+	color: #050801;
+	box-shadow: 0 0 5px #03e9f4,
+	            0 0 25px #03e9f4,
+	            0 0 50px #03e9f4,
+	            0 0 200px #03e9f4;
+}
+
+#tab-btn1:nth-child(3)
+{
+	filter: hue-rotate(290deg);
+}
+#tab-btn2:nth-child(3)
+{
+	filter: hue-rotate(290deg);
+}
+#tab-btn2:hover
+{
+	background: #03e9f4;
+	color: #050801;
+	box-shadow: 0 0 5px #03e9f4,
+	            0 0 25px #03e9f4,
+	            0 0 50px #03e9f4,
+	            0 0 200px #03e9f4;
+}
+.card-link
+{
+color: cyan;
+
+}
+    .form-control
+    {
+        width: 60%;
+    }
+
+</style>      
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg" id="aa">
+            <a class="navbar-brand" href="#">Book-Shelf</a>
+          
+            <div class="huh">
+              <ul class="navbar-nav mr-auto">
+               
+                {% if user.is_authenticated %}
+
+                 <li class="nav-item">
+                  <a class="nav-linkk" id="tab-btn2" href="{% url 'search' %}">Search</a>
+                </li>
+  
+        
+                <li class="nav-item">
+                        <a class="nav-link" id="tab-btn2" href="{% url 'logout' %}">Log Out</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-linkk" id="tab-btn1" href="{% url 'login' %}">Log In</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-linkk" id="tab-btn2" href="{% url 'register' %}">Register</a>
+                    </li> 
+               
+                {% endif %}
+              </ul>
+            </div>           
+          </nav>
+
+ 
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="{% static 'push.min.js' %}"></script>
+<script src="{% static 'serviceWorker.min.js' %}"></script>
+        <div class="body">
+        	<br>
+            {% block body %}
+            {% endblock %}
+        </div>
+
+    </body>
+</html>

@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+{% load static %}
+{% block body %}
+
+ <div>    
+       <h1 style="color:cyan";>YOUR BOOK:</h1>
+
+             <div class="card-body"> 
+                   <p class="card-text">
+            <h2 >TITLE: {{ current_book.title }}-{{ current_book.bookID }}</h2>
+            <h3>AUTHOR: {{ current_book.author }}</h3>
+            <h3>PUBLISHER: {{ current_book.publisher }}</h3>
+            <h3>RATING: {{ current_book.average_ratting }}</h3>
+            {% if 'nan' not in current_book.summary %}
+            <h3>SUMMARY: {{ current_book.summary }}</h3>
+
+            {% else %}
+            <a class="card-link" href="{% url 'add' current_book.bookID %}">Add summary</a>
+
+
+            {% endif %}</p>
+            </div> 
+            
+    <h1 style="color:cyan";>YOUR RECOMMENDATIONS:</h1>
+    <div class="row">
+            {% for i in details %}
+            <div class="col-sm-6">
+                  <div class="card-mb-3">
+                      <div class="card-body">
+
+            <a class="card-link" href="{% url 'details' i.0 %}">{{ i.1 }}</a></div></div></div>
+            
+            {% endfor %}
+      </div>  
+{% endblock %}
+
+
+
+
+
+
+

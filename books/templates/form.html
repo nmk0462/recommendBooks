@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% load static %}
+{% block body %}
+<style type="text/css">
+    .form-control
+    {
+        width: 60%;
+    }
+</style>
+        <form class="form-group" action="/books_select" method="POST">
+            {% csrf_token %}
+            <input class="form-control" type="text" name="book_name"/>
+            <input class="btn btn-primary" type="submit" value="Submit"/>
+        
+        </form>
+
+        
+            <h2 style="color:cyan";>Books you might like:</h2>
+            <div class="row">
+       
+            {% for i in data %}
+            <div class="col-sm-6">
+                <div class="card-mb-3">
+                    <div class="card-body">
+            <a  class="card-link" href="{% url 'details' i.0 %}">{{ i.1 }}</a><br></div></div>
+            </div>
+            {% endfor %}
+        </div>
+{% endblock %}
