@@ -9,10 +9,10 @@ class User(AbstractUser):
 # Create your models here.
 class books(models.Model):
     bookID=models.IntegerField(null=False)
-    title=models.CharField(max_length=500)
-    author=models.CharField(max_length=500)
+    title=models.CharField(max_length=5000)
+    author=models.CharField(max_length=5000)
     average_ratting=models.CharField(max_length=100)
-    publisher=models.CharField(max_length=500)
+    publisher=models.CharField(max_length=5000)
     summary=models.TextField(null=True)
 
 class Click(models.Model):
