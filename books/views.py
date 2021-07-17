@@ -210,7 +210,7 @@ def add_summary(request,id):
 
 def book_csv(request):
     # Import CSV
-    data = pd.read_csv ('books.csv',encoding = 'utf-16')   
+    data = pd.read_csv ('books.csv',encoding='latin1')   
 
     df = pd.DataFrame(data, columns= ['bookID','title','authors','publisher','average_rating','summary'])
 
